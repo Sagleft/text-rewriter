@@ -15935,7 +15935,6 @@
             " leave-taking " => " conge ",
             " leaved " => " abounding ",
             " leaven " => " account ",
-            " leaving " => " abrogation ",
             " leavings " => " balance ",
             " lecherous " => " carnal ",
             " lechery " => " bender ",
