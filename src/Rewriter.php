@@ -31201,35 +31201,41 @@
             " zookeeper " => " administrator ",
         ];
 
-        public function Do($article = ''): sting {
+        function isDictContainsKey($element = ''): bool {
+            return in_array($element, $this->dict);
+        }
+
+        public function Do($article = ''): string {
             $artarray = $article;
             $step1 = array("(", ")", "[", "]", "?", ".", ",", "|", "\$", "*", "+", "^","{", "}");
-            $artarray = str_replace($step1," ",$artarray);
-            $artarray = str_replace("  "," ",$artarray);
-            $words_artarray = explode(" ",$artarray);
+            $artarray = str_replace($step1," ", $artarray);
+            $artarray = str_replace("  "," ", $artarray);
+            $words_artarray = explode(" ", $artarray);
 
-            if (sizeof($words_artarray)>0)
+            if (sizeof($words_artarray) > 0)
             {
-            for($i=0;$i<sizeof($words_artarray);$i++)
+                for($i=0; $i<sizeof($words_artarray); $i++)
                 {
-                $to_be_replaced = $words_artarray[$i];
-                $to_be_replaced = str_replace(" ","",$to_be_replaced);
+                    $to_be_replaced = $words_artarray[$i];
+                    $to_be_replaced = str_replace(" ", "", $to_be_replaced);
 
-                if(($to_be_replaced!="")&&(strlen($to_be_replaced)>=4))
+                    if(($to_be_replaced!="") && (strlen($to_be_replaced)>=4))
                     {
-
-                    $to_be_replaced = " ".$to_be_replaced." ";
-                    $to_be_replaced_with = $this->dict[$to_be_replaced];
-                    if(($to_be_replaced!="")&&($to_be_replaced!=" ")&&($to_be_replaced_with!=""))
+                        $to_be_replaced = " " . $to_be_replaced . " ";
+                        if($this->isDictContainsKey($to_be_replaced))
                         {
-                        $article = str_replace($to_be_replaced,$to_be_replaced_with,$article);
-                        $article = str_replace(" ".ucfirst(trim($to_be_replaced))." "," ".ucfirst(trim($to_be_replaced_with))." ",$article);
+                            $to_be_replaced_with = $this->dict[$to_be_replaced];
+                            if(($to_be_replaced!="") && ($to_be_replaced!=" ") && ($to_be_replaced_with!=""))
+                            {
+                                $article = str_replace($to_be_replaced,$to_be_replaced_with,$article);
+                                $article = str_replace(" " . ucfirst(trim($to_be_replaced))." "," ".ucfirst(trim($to_be_replaced_with))." ",$article);
+                            }
                         }
                     }
                 }
+                //$article = str_replace("\'", "'",$article);
+                //$article = str_replace('\"', '"',$article);
+                return $article;
             }
-            $article = str_replace("\'","'",$article);
-            $article = str_replace('\"','"',$article);
-            return $article;
         }
     }
