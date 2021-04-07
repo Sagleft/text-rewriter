@@ -31201,8 +31201,9 @@
             " zookeeper " => " administrator ",
         ];
 
-        function isDictContainsKey($element = ''): bool {
-            return in_array($element, $this->dict);
+        function isDictContainsKey($key = ''): bool {
+            //return in_array($element, $this->dict);
+            return isset($this->dict[$key]);
         }
 
         public function Do($article = ''): string {
