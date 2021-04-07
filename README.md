@@ -1,6 +1,7 @@
 # License
 
 (c) 2013 Justin Paulin
+
 (c) 2021 Sagleft
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
