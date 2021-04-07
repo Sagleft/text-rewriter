@@ -1,14 +1,7 @@
-# Article APIs
-
-article-rewriter.php - Takes an article as a GET variable, rewrites it so that it appears to be unique content using thesaurus definitions, and echoes the output to the webpage.
-
-article-simplifier.php - Basically, reverses what article-rewriter.php does.
-
-These were both used as part of a Wordpress autoblog extension I built. Enjoy.
-
 # License
 
 (c) 2013 Justin Paulin
+(c) 2021 Sagleft
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
